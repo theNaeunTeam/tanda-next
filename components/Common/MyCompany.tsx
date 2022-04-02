@@ -30,7 +30,7 @@ export default function MyCompany() {
         }
     }
     return (
-        <>
+        <>hghgjgjhhjgj
             <section className='appstore'>
                 <div className='c-container'>
                     <div className='btn-area'>

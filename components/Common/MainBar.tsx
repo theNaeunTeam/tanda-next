@@ -1,11 +1,11 @@
 import React from "react";
-import '../../lib/styles/nav.scss'
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 import logo from '../../lib/images/favicon.png'
-import {IconButton} from "material-ui";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import {AiFillEdit} from "react-icons/ai";
 import {BiStore} from "react-icons/bi";
+import Image from 'next/image';
+import {IconButton} from "@mui/material";
 
 export default function MainBar() {
     /*
@@ -36,31 +36,29 @@ export default function MainBar() {
                 <input type='checkbox' id='responsive-menu'/>
                 <label>&nbsp;&nbsp;&nbsp;&nbsp; 메뉴</label>
                 <ul>
-                    <li><Link to={'/'}><img src={logo} style={{height: '20px'}} alt="logo"/>HOME</Link></li>
+                    <li><Link href={'/'}><a><Image src={logo} height={20} width={20} alt="logo"/> HOME</a></Link></li>
                     <li>
-                        <Link to={'/list'}>
-                            <BiStore/> 근처 가게 찾기
-                        </Link>
+                        <Link href={'/list'}><a><BiStore/> 근처 가게 찾기</a></Link>
                     </li>
-                    <li><Link to={'/event'}>진행중인 이벤트</Link></li>
+                    <li><Link href={'/event'}>진행중인 이벤트</Link></li>
                     <li>
-                        <Link to={'/mycompany'}>탄다오더 소개 </Link>
+                        <Link href={'/mycompany'}><a>탄다오더 소개</a></Link>
                     </li>
-                    <li><Link to={'/user'} className='dropdown-arrow'><AiFillEdit/> &nbsp; 마이페이지 </Link>
+                    <li className='dropdown-arrow'><Link href={'/user'}><a><AiFillEdit/> &nbsp; 마이페이지</a></Link>
                         <ul className='sub-menus'>
-                            <li><Link to={'/user/userreserve'}>예약 내역</Link></li>
-                            <li><Link to={'/user/favorstore'}>즐겨찾는 가게</Link></li>
-                            <li><Link to={'/user/useredit'}>회원정보수정</Link></li>
-                            <li><Link to={'/user/userexit'}>탈퇴하기</Link></li>
+                            <li><Link href={'/user/userreserve'}><a>예약 내역</a></Link></li>
+                            <li><Link href={'/user/favorstore'}><a>즐겨찾는 가게</a></Link></li>
+                            <li><Link href={'/user/useredit'}><a>회원정보수정</a></Link></li>
+                            <li><Link href={'/user/userexit'}><a>탈퇴하기</a></Link></li>
                         </ul>
                     </li>
                     {/*<li><Link to={'#'}>가맹안내</Link></li>*/}
                     <li>
-                        <Link to={'/user/shoppingcart'}>
-                            <IconButton color="primary" aria-label="add to shopping cart">
-                                <AddShoppingCartIcon/>
-                            </IconButton>
-                        </Link>
+                        <Link href={'/user/shoppingcart'}><a>
+                                <IconButton color="primary" aria-label="add to shopping cart">
+                                    <AddShoppingCartIcon/>
+                                </IconButton>
+                            </a></Link>
                     </li>
                 </ul>
             </nav>

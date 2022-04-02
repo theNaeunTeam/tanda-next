@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from "../../lib/styles/LoginForm.module.css";
+import React from "react";
+import styles from "../../styles/LoginForm.module.css";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -22,7 +22,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import DialogActions from "@mui/material/DialogActions";
 import {dispatchType} from "../../lib/types";
-import {RouteComponentProps} from "react-router-dom";
+import {NextRouter} from "next/router";
 
 export default function LoginForm(props: {
     handleForm: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -30,7 +30,7 @@ export default function LoginForm(props: {
     dispatch: (d: dispatchType) => void;
     loginForm: { radio: string, u_id: string, u_pw: string };
     login: () => void;
-    history: RouteComponentProps["history"];
+    history: NextRouter;
     handleClickOpen: () => void;
     handleClose: () => void;
     findPw: string;

@@ -1,7 +1,8 @@
 import React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import {Swiper, SwiperSlide} from "swiper/react/swiper-react";
+// import {Swiper, SwiperSlide} from "swiper/react/swiper-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import {A11y, Autoplay, Navigation, Pagination, Scrollbar} from "swiper";
 import Item from "./Item";
 import {Paper} from "@mui/material";
@@ -9,6 +10,7 @@ import LocalList from "./LocalList";
 import {carouselType, recommendType, shopList} from "../../../lib/types";
 import RecommendList from "./RecommendList";
 import styled from "styled-components";
+import {NextRouter} from "next/router";
 
 const DivContainer = styled.div`
   clear: both;
@@ -19,7 +21,7 @@ const DivContainer = styled.div`
   padding-bottom: 19px;
 `;
 
-export default function UserMain(props: { loading: any; items: any; shopList: any; recommends: any; history: any; }) {
+export default function UserMain(props: { loading: any; items: any; shopList: any; recommends: any; history: NextRouter; }) {
 
     const {
         loading,

@@ -1,5 +1,5 @@
 import {carouselType} from "../../../lib/types";
-import {Link} from "react-router-dom";
+import Link from 'next/link'
 import React from "react";
 
 interface itemType {
@@ -11,7 +11,7 @@ interface itemType {
 export default function Item({data, idx}: itemType) {
     return (
         <div>
-            <Link to={data.link} style={{width: '100%'}}>
+            <Link href={data.link} >
                 <div style={{
                     backgroundImage: `url(${data.src})`,
                 }}

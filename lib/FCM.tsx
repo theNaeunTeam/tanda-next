@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from "react";
-import firebase from "firebase/compat";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 import {client} from "./api/client";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Button from '@mui/material/Button';
-import {useHistory} from "react-router-dom";
 import {useSweetAlert} from "./useSweetAlert";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../index";
+import history from "next/router";
+import {RootState} from "../store";
 
 export default function FCM() {
-    const history = useHistory();
     const {fireSweetAlert} = useSweetAlert();
     const dispatch = useDispatch();
     const {notificationReducer} = useSelector((state: RootState) => state);

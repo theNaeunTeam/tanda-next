@@ -1,18 +1,16 @@
-import React from "react";
 import styled from "styled-components";
-import {Link, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
-import '../../lib/styles/Header.scss'
 import LoginFormContainer from "../../containers/Common/LoginFormContainer";
 import Backdrop from '@mui/material/Backdrop';
 import ScrollToTop from "../../lib/ScrollToTop";
+import history from "next/router";
+import {RootState} from "../../store";
+import Link from 'next/link';
 
 const DivWrap = styled.div`
   color: black;
   width: 100%;
   overflow: hidden;
-  line-height: 22px;
   position: relative;
   line-height: 35px;
 `;
@@ -44,7 +42,6 @@ const UL = styled.ul`
 
 export default function Header() {
 
-    const history = useHistory();
     const dispatch = useDispatch();
     const {showLoginModal, authReducer} = useSelector((state: RootState) => state);
 
@@ -60,10 +57,10 @@ export default function Header() {
                     로그인
                 </li>
                 <li>
-                    <Link style={{fontWeight: 'bold'}} to={'/user/register'}>회원가입</Link>
+                    <Link href={'/user/register'}><a>회원가입</a></Link>
                 </li>
                 <li>
-                    <Link style={{fontWeight: 'bold'}} to={'/owner/register'}>입점신청</Link>
+                    <Link href={'/owner/register'}><a>입점신청</a></Link>
                 </li>
             </>
         )
@@ -73,18 +70,18 @@ export default function Header() {
         return (
             <>
                 <li>
-                    {authReducer.isOwner === true ? authReducer.o_sNumber + ' 점주님 반갑습니다.'
+                    {authReducer.isOwner ? authReducer.o_sNumber + ' 점주님 반갑습니다.'
                         : null}
-                    {authReducer.isUser === true ? authReducer.u_id + " 님 반갑습니다."
+                    {authReducer.isUser ? authReducer.u_id + " 님 반갑습니다."
                         : null}
-                    {authReducer.isMaster === true ? "관리자로 로그인 되었습니다."
+                    {authReducer.isMaster ? "관리자로 로그인 되었습니다."
                         : null}
                 </li>
                 <li>
-                    {authReducer.isOwner === true || authReducer.isMaster === true ?
+                    {authReducer.isOwner || authReducer.isMaster ?
                         <button onClick={logout} className={'button'}>로그아웃</button>
                         : null}
-                    {authReducer.isUser === true ?
+                    {authReducer.isUser ?
                         <User/>
                         : null}
                 </li>
@@ -95,9 +92,9 @@ export default function Header() {
         return (
             <>
                 <li>
-                    <Link to={'/user'}>마이페이지</Link>
+                    <Link href={'/user'}><a>마이페이지</a></Link>
                 </li>
-                <li><Link to={'/user/shoppingcart'}>장바구니</Link></li>
+                <li><Link href={'/user/shoppingcart'}><a>장바구니</a></Link></li>
                 <li>
                     <button onClick={logout} className={'button'}>로그아웃</button>
                 </li>
@@ -115,12 +112,12 @@ export default function Header() {
             <ScrollToTop/>
             <DivWrap className='header'>
                 <DivMaster>
-                    <Link to={'/master'} style={{marginRight: '20px'}}>관리자 인증</Link>
-                    <Link to={'/owner'}>가게 인증</Link>
+                    <Link href={'/master'}><a style={{marginRight: '20px'}}>관리자 인증</a></Link>
+                    <Link href={'/owner'}><a>가게 인증</a></Link>
                 </DivMaster>
                 <Info>
                     <UL>
-                        {authReducer.isOwner === false && authReducer.isUser === false && authReducer.isMaster === false
+                        {!authReducer.isOwner && !authReducer.isUser && !authReducer.isMaster
                             ? <First/>
                             : <Login/>}
                     </UL>

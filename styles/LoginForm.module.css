@@ -6,29 +6,6 @@
 /*    background-color: #56baed;*/
 /*}*/
 
-body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-}
-
-a {
-    color: #92badd;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 400;
-}
-
-h2 {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 40px 8px 10px 8px;
-    color: #cccccc;
-}
-
-
 /* STRUCTURE */
 
 .wrapper {
@@ -272,18 +249,6 @@ h2.active {
 
 
 /* OTHERS */
-
-*:focus {
-    outline: none;
-}
-
-#icon {
-    width: 60%;
-}
-
-* {
-    box-sizing: border-box;
-}
 
 .loginBtn {
     background-color: #56baed;

@@ -1,8 +1,7 @@
 import React, {useRef} from "react";
-import {Link, RouteComponentProps} from 'react-router-dom';
-import '../../lib/styles/nav.scss'
+import Link from 'next/link';
 
-export default function MasterNavbar(props: RouteComponentProps) {
+export default function MasterNavbar(props: any) {
 
     const navRef = useRef(null);
     const chkBoxRef = useRef(null);
@@ -27,34 +26,34 @@ export default function MasterNavbar(props: RouteComponentProps) {
     return (
         <>
             <nav id='menu' ref={chkBoxRef}>
-                <input type='checkbox' id='responsive-menu' ref={navRef} onClick={updatemenu}/><label></label>
+                <input type='checkbox' id='responsive-menu' ref={navRef} onClick={updatemenu}/><label/>
                 <ul>
-                    <li><Link to={'/master'}>Home</Link></li>
-                    <li><Link className='dropdown-arrow' to={'/master'}>점주/회원 관리</Link>
+                    <li><Link href={'/master'}>Home</Link></li>
+                    <li className='dropdown-arrow'><Link href={'/master'}>점주/회원 관리</Link>
                         <ul className='sub-menus'>
-                            <li><Link to={'/master'}>점주리스트 </Link></li>
-                            <li><Link to={'/master/masteruserlist'}>회원리스트</Link></li>
+                            <li><Link href={'/master'}><a>점주리스트</a></Link></li>
+                            <li><Link href={'/master/masteruserlist'}><a>회원리스트</a></Link></li>
                         </ul>
                     </li>
 
-                    <li><Link className='dropdown-arrow' to={'/master/approvalwaiting'}> 가맹점 관리 </Link>
+                    <li className='dropdown-arrow'><Link href={'/master/approvalwaiting'}> 가맹점 관리 </Link>
                         <ul className='sub-menus'>
-                            <li><Link to={'/master/approvalwaiting'}>입점승인대기</Link></li>
-                            <li><Link to={'/master/approvalcompletion'}>입점승인완료</Link></li>
-                            <li><Link to={'/master/terminationwaiting'}>해지승인대기</Link></li>
-                            <li><Link to={'/master/terminationcompletion'}>해지승인완료</Link></li>
+                            <li><Link href={'/master/approvalwaiting'}><a>입점승인대기</a></Link></li>
+                            <li><Link href={'/master/approvalcompletion'}><a>입점승인완료</a></Link></li>
+                            <li><Link href={'/master/terminationwaiting'}><a>해지승인대기</a></Link></li>
+                            <li><Link href={'/master/terminationcompletion'}><a>해지승인완료</a></Link></li>
                         </ul>
                     </li>
 
-                    <li><Link className='dropdown-arrow' to={'/master/masterchart'}> 통계 자료 </Link>
+                    <li className='dropdown-arrow'><Link href={'/master/masterchart'}><a>통계 자료</a></Link>
                         <ul className='sub-menus'>
-                            <li><Link to={'/master/masterownerdash'}>오너현황</Link></li>
-                            <li><Link to={'/master/userdash'}>유저현황</Link></li>
-                            <li><Link to={'/master/masterchart'}>종합현황</Link></li>
+                            <li><Link href={'/master/masterownerdash'}><a>오너현황</a></Link></li>
+                            <li><Link href={'/master/userdash'}><a>유저현황</a></Link></li>
+                            <li><Link href={'/master/masterchart'}><a>종합현황</a></Link></li>
                             <li></li>
                         </ul>
                     </li>
-                    <li><Link to={'/master/changeBanner'}>배너변경</Link></li>
+                    <li><Link href={'/master/changeBanner'}><a>배너변경</a></Link></li>
                 </ul>
             </nav>
             <br/>
