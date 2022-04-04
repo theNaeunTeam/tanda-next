@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, {useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {useDispatch} from "react-redux";
 import UserExit from "../../components/User/UserExit";
 import {useSweetAlert} from "../../lib/useSweetAlert";
@@ -9,7 +9,6 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 export default function UserExitContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('userToken')) history.replace('/err');
     }, []);

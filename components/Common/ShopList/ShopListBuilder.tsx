@@ -2,8 +2,9 @@ import {categoryType, shopList} from "../../../lib/types";
 import React, {useEffect, useState} from "react";
 import {fetch_Category_Per_sNumber} from "../../../lib/api/Fetch_Category_Per_sNumber";
 import {Map, MapMarker} from "react-kakao-maps-sdk";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {Doughnut} from 'react-chartjs-2';
+import 'chart.js/auto';
 import Skeleton from '@mui/material/Skeleton';
 import {Paper} from "@mui/material";
 
@@ -13,8 +14,6 @@ interface listType {
 }
 
 export default function ShopListBuilder({data, idx}: listType) {
-
-    const history = useHistory();
 
     const [childLoading, setChildLoading] = useState(true);
 

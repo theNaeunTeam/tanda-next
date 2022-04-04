@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
 import {shopList} from "../../lib/types";
-import {useHistory} from "react-router-dom";
-import '../../../styles/shopList.scss';
+import history from "next/router";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
 import {useInView} from "react-intersection-observer"
 import ShopList from "../../components/Common/ShopList/ShopList";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import {RootState} from "../../store";
 
 
 const marks = [
@@ -41,7 +40,6 @@ const centumLON = 129.127655001351;
 
 export default function ShopListContainer() {
     const [inViewRef, inView] = useInView();
-    const history = useHistory();
     const dispatch = useDispatch();
     const {fireSweetAlert} = useSweetAlert();
 

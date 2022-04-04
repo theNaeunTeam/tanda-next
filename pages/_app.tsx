@@ -84,7 +84,6 @@ function app({Component, pageProps}: AppProps) {
 
     return (
         <>
-
             <Head>
                 <title>탄다오더</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>

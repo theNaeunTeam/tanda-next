@@ -1,12 +1,9 @@
 import React from "react";
-import {useHistory, useLocation} from 'react-router-dom';
+import history from "next/router";
 import {Navigation} from 'react-minimal-side-navigation';
-import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
-import '../../lib/styles/nav.scss'
 
 export default function UserNavbar() {
-    const history = useHistory();
-    const location = useLocation();
+    // const location = useLocation();
 
 
     return (
@@ -18,7 +15,8 @@ export default function UserNavbar() {
                       </span>
             </div>
             <Navigation
-                activeItemId={location.pathname}
+                // activeItemId={location.pathname}
+                activeItemId={'/user'}
                 onSelect={({itemId}) => {
                     history.push(itemId);
                 }}

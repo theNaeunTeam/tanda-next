@@ -1,25 +1,23 @@
+import type {NextPage} from "next";
 import React, {useEffect, useState} from 'react';
-import '../../../styles/UserMain.scss';
-import {useHistory} from "react-router-dom";
-import {carouselType, recommendType, shopList} from "../../lib/types";
+import history from "next/router";
 import axios from "axios";
-import 'swiper/swiper.scss'; // core Swiper
-import 'swiper/modules/navigation/navigation.scss'; // Navigation module
-import 'swiper/modules/pagination/pagination.scss'; // Pagination module
-import 'swiper/modules/scrollbar/scrollbar.scss'; // ScrollBar module
-import 'swiper/modules/autoplay/autoplay.scss';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
 import {useSelector} from "react-redux";
-import {RootState} from "../../index";
+import {carouselType, recommendType, shopList} from "../../lib/types";
+import {RootState} from "../../store";
 import UserMain from "../../components/User/UserMain/UserMain";
-import MQTT from "../../lib/MQTT"; // Autoplay module
 
 
-export default function UserMainContainer() {
+const UserMainContainer: React.FC = () => {
 
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState<carouselType[]>([]);
     const [recommends, setRecommends] = useState<recommendType[]>([]);
-    const history = useHistory();
     const {userLocalMap} = useSelector((state: RootState) => state);
     const [shopList, setShopList] = useState<shopList[]>([]);
 
@@ -73,3 +71,4 @@ export default function UserMainContainer() {
     )
 }
 
+export default UserMainContainer;
