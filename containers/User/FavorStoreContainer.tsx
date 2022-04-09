@@ -1,18 +1,16 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
-import {useHistory} from "react-router-dom";
-import '../../../styles/table.scss';
+import history from "next/router";
 import FavorStore from "../../components/User/FavorStore/FavorStore";
 import {favorListType} from "../../lib/types";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import {RootState} from "../../store";
 
 
 export default function FavorStoreContainer() {
 
     const {authReducer} = useSelector((state: RootState) => state);
-    const history = useHistory();
     const dispatch = useDispatch();
     useLayoutEffect(() => {
         if (!localStorage.getItem('userToken')) history.replace('/err');

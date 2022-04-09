@@ -1,7 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/table.scss'
+import history from "next/router";
 import {dummyType} from "../../lib/types";
 import UserReserve from "../../components/User/UserReserve/UserReserve";
 import {useSweetAlert} from "../../lib/useSweetAlert";
@@ -10,7 +9,6 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 export default function UserReserveContainer() {
 
     const [startIndex, setStartIndex] = useState(0);
-    const history = useHistory();
     const {fireSweetAlert} = useSweetAlert();
 
     useLayoutEffect(() => {

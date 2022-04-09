@@ -1,10 +1,10 @@
+import 'chart.js/auto';
 import {categoryType, shopList} from "../../../lib/types";
 import React, {useEffect, useState} from "react";
 import {fetch_Category_Per_sNumber} from "../../../lib/api/Fetch_Category_Per_sNumber";
 import {Map, MapMarker} from "react-kakao-maps-sdk";
 import history from "next/router";
 import {Doughnut} from 'react-chartjs-2';
-import 'chart.js/auto';
 import Skeleton from '@mui/material/Skeleton';
 import {Paper} from "@mui/material";
 

@@ -1,17 +1,16 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from 'react-router-dom';
-import {useRouteMatch} from 'react-router';
-import '../../../styles/ShopStyle.scss';
 import {useCookies} from 'react-cookie';
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
 import {aboutStoreType, categoryType, shopBtnColor, shopViewType} from "../../lib/types";
 import {fetch_Category_Per_sNumber} from "../../lib/api/Fetch_Category_Per_sNumber";
 import GoodsMode from "../../components/Common/ShopView/GoodsMode";
 import ShopDetail from "../../components/Common/ShopView/ShopDetail";
 import ShopView from "../../components/Common/ShopView/ShopView";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import {RootState} from "../../store";
+import history from "next/router";
+import {useRouteMatch} from "react-router";
 
 export default function ShopViewContainer() {
 
@@ -75,7 +74,6 @@ export default function ShopViewContainer() {
         o_image: "",
     };
 
-    const history = useHistory();
     const {fireSweetAlert} = useSweetAlert();
     const [aboutStore, setAboutStore] = useState<aboutStoreType>(initStore);
     const [modal, setModal] = useState(true);

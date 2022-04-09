@@ -2,15 +2,13 @@ import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {masterMainType2} from "../../lib/types";
 import {GridColDef, GridRowId} from "@mui/x-data-grid";
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/masterOwnerDash.scss'
+import history from "next/router";
 import TerminationCompletion from "../../components/Master/TerminationCompletion";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function TerminationCompletionContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');
     }, []);

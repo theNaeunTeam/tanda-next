@@ -3,8 +3,7 @@ import {useEffect, useLayoutEffect, useState} from 'react';
 import {masterMainType2} from "../../lib/types";
 import {GridColDef, GridRowId} from "@mui/x-data-grid";
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/masterOwnerDash.scss'
+import history from "next/router";
 import ApprovalCompletion from "../../components/Master/ApprovalCompletion";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
@@ -12,10 +11,10 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 export default function ApprovalCompletionContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');
     }, []);
+
     const initialValue = [{
         id: '',
         o_approval: '',

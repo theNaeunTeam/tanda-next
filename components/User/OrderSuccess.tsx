@@ -10,7 +10,7 @@ import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import PaymentIcon from "@mui/icons-material/Payment";
 import Button from "@mui/material/Button";
 import styled from "styled-components";
-import {RouteComponentProps} from "react-router-dom";
+import {NextRouter} from "next/router";
 
 const OrderSuccessDiv = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ export default function OrderSuccess(props: {
     cartReducer: cartReducerType[];
     orderForm: orderFormType;
     arr: orderSubmitType[];
-    history: RouteComponentProps["history"];
+    history: NextRouter;
 }) {
 
     const {

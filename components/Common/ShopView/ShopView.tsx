@@ -1,10 +1,10 @@
-import React, {ReactElement, useState} from "react";
+import React, {useState} from "react";
 import fullStar from "../../../lib/images/star1.png";
 import emptyStar from "../../../lib/images/star2.png";
 import styled from "styled-components";
 import {Paper} from "@mui/material";
 import {aboutStoreType} from "../../../lib/types";
-import MQTT from "../../../lib/MQTT";
+import Image from 'next/image';
 
 const DivTitle = styled.div`
   flex-direction: column;
@@ -43,10 +43,10 @@ export default function ShopView(props: {
                 {
                     favorites
                         //    즐겨찾기 해제
-                        ? <span style={{marginLeft: "auto"}}><img style={{width: "40px"}} src={fullStar}
+                        ? <span style={{marginLeft: "auto"}}><Image style={{width: "40px"}} src={fullStar}
                                                                   onClick={favorOff}/></span>
                         //    즐겨찾기 추가
-                        : <span style={{marginLeft: "auto"}}><img style={{width: "40px"}} src={emptyStar}
+                        : <span style={{marginLeft: "auto"}}><Image style={{width: "40px"}} src={emptyStar}
                                                                   onClick={favorInsert}/></span>
                 }
                 {/*{contact ? <span onClick={() => setContact(!contact)}>*/}

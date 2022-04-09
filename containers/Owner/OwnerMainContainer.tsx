@@ -1,15 +1,13 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {client} from "../../lib/api/client";
 import {ownerPageType} from "../../lib/types";
-import '../../../styles/button.scss'
 import OwnerMain from "../../components/Owner/OwnerMain";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function OwnerMainContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('ownerToken')) {
             alert('로그인 후 이용가능합니다.');

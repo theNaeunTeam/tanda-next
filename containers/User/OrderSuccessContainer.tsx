@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {useHistory, useLocation} from "react-router-dom";
+import history from "next/router";
 import {cartReducerType, orderFormType, orderSubmitType} from "../../lib/types";
 import {useCookies} from "react-cookie";
 import OrderSuccess from "../../components/User/OrderSuccess";
+import {useLocation} from "react-router";
 
 
 export default function OrderSuccessContainer() {
@@ -18,7 +19,6 @@ export default function OrderSuccessContainer() {
     }
 
     const location = useLocation();
-    const history = useHistory();
     const [cookies, setCookie, removeCookie] = useCookies(['cart']); // 건들지 말것
     const [orderForm, setOrderForm] = useState<orderFormType>(defaultValue);
     const [arr, setArr] = useState<orderSubmitType[]>([]);

@@ -1,16 +1,12 @@
 import * as React from 'react';
 import {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/button.scss';
-import '../../../styles/masterOwnerDash.scss';
+import history from "next/router";
 import MasterChart2 from "../../components/Master/MasterChart2";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function MasterChart2Container() {
     const {fireSweetAlert} = useSweetAlert();
-
-    const history = useHistory();
 
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');

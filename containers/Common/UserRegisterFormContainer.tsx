@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import UserRegisterForm from "../../components/Common/UserRegisterForm";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
@@ -19,8 +19,6 @@ export default function UserRegisterFormContainer() {
         u_gender: '남성',
         u_age: '20',
     };
-
-    const history = useHistory();
 
     const [regForm, setRegForm] = useState<{ [key: string]: string }>(initValue);
 

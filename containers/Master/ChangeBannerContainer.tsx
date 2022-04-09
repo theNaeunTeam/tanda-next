@@ -1,8 +1,7 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
 import {carouselType} from "../../lib/types";
-import {useHistory} from "react-router-dom";
-import '../../../styles/ChangeBanner.scss';
+import history from "next/router";
 import ChangeBanner from "../../components/Master/ChangeBanner";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
@@ -19,7 +18,7 @@ export default function ChangeBannerContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
     const [arr, setArr] = useState<carouselType[]>([]);
-    const history = useHistory();
+
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');
     }, []);

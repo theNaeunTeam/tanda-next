@@ -3,7 +3,7 @@ import axios, {AxiosError} from "axios";
 import {ownerRegisterFormType} from "../../lib/types";
 import {client} from "../../lib/api/client";
 import OwnerRegisterForm from "../../components/Common/OwnerRegisterForm";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function OwnerRegisterFormContainer() {
@@ -23,8 +23,6 @@ export default function OwnerRegisterFormContainer() {
         o_latitude: '',
         o_longitude: '',
     };
-
-    const history = useHistory();
 
     const o_nameRef = useRef(null);
     const o_addressRef = useRef(null);

@@ -8,14 +8,13 @@ import {Button} from "@mui/material";
 import styled from "styled-components";
 import {client} from "../../lib/api/client";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {goodsViewType} from '../../lib/types';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import '../../../styles/table.scss'
 import {GoodsViewTableBuilder} from "../../components/Owner/GoodsViewTableBuilder";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import {RootState} from "../../store";
 
 
 const DivContainer = styled.div`
@@ -33,7 +32,6 @@ const DivContainer = styled.div`
 export default function GoodsViewContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     const dispatch = useDispatch();
     const {authReducer} = useSelector((state: RootState) => state);
     useLayoutEffect(() => {

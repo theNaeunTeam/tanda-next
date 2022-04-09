@@ -1,6 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import UserEdit from "../../components/User/UserEdit";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
@@ -20,7 +20,6 @@ export default function UserEditContainer() {
     };
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('userToken')) history.replace('/err');
     }, []);
@@ -118,7 +117,7 @@ export default function UserEditContainer() {
                 history.replace('/user')
             } else {
                 alert('회원 정보 수정이 실패했습니다.');
-                history.goBack();
+                history.back();
             }
         } catch (e: any) {
             if (e.response.status === 500) {

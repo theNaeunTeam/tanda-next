@@ -1,14 +1,12 @@
 import * as React from 'react';
 import {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/masterOwnerDash.scss'
+import history from "next/router";
 import MasterChart3 from "../../components/Master/MasterChart3";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function MasterChart3Container() {
 
-    const history = useHistory();
     const {fireSweetAlert} = useSweetAlert();
 
     useLayoutEffect(() => {

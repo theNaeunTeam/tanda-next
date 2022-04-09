@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {useEffect, useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/masterOwnerDash.scss';
+import history from "next/router";
 import UserDash from "../../components/Master/UserDash";
 
 
 export default function UserDashContainer() {
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');
     }, []);

@@ -1,6 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {useDispatch} from "react-redux";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {client} from "../../lib/api/client";
 import {userMyPageType} from "../../lib/types";
 import UserMyPage from "../../components/User/UserMyPage";
@@ -10,7 +10,6 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 export default function UserMypageContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
 
@@ -53,11 +52,11 @@ export default function UserMypageContainer() {
 
             } else if (e.response.status === 400) {
                 fireSweetAlert({title: e.response.data.error,icon: 'error'});
-                history.goBack();
+                history.back();
 
             } else {
                 alert('데이터를 불러오는데 실패했습니다. \n잠시 후 다시 시도 바랍니다.')
-                history.goBack();
+                history.back();
 
             }
         }

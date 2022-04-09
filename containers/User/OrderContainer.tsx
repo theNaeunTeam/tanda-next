@@ -1,12 +1,11 @@
 import React, {useEffect, useLayoutEffect, useState} from "react";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
 import {useCookies} from "react-cookie";
 import {orderFormType, orderSubmitType} from "../../lib/types";
 import {client} from "../../lib/api/client";
-import '../../../styles/order.scss';
 import Order from "../../components/User/Order";
+import {RootState} from "../../store";
 
 export default function OrderContainer() {
     const today = new Date();
@@ -20,8 +19,6 @@ export default function OrderContainer() {
         kudasai: '',
         r_firstDate: `${today.getFullYear()}-${('0' + (today.getMonth() + 1)).slice(-2)}-${('0' + today.getDate()).slice(-2)}`
     }
-
-    const history = useHistory();
 
     const dispatch = useDispatch();
     const {cartReducer, authReducer} = useSelector((state: RootState) => state);

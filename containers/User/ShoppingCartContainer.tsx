@@ -2,12 +2,11 @@ import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {useCookies} from 'react-cookie';
 import {client} from "../../lib/api/client";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {ShoppingCartDTO} from "../../lib/types";
-import '../../../styles/shoppingCart.scss';
 import ShoppingCart from "../../components/User/ShoppingCart/ShoppingCart";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import {RootState} from "../../store";
 
 export default function ShoppingCartContainer() {
 
@@ -22,8 +21,6 @@ export default function ShoppingCartContainer() {
         o_name: '',
         u_id: '',
     }];
-
-    const history = useHistory();
 
     const [cookies, setCookie] = useCookies(['cart']);
     const [temp, setTemp] = useState<ShoppingCartDTO[]>(defaultValue);

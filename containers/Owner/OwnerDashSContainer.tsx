@@ -1,5 +1,5 @@
 import React, {useEffect, useLayoutEffect, useState} from "react";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {client} from "../../lib/api/client";
 import {conType} from "../../lib/types";
 import OwnerDashS from "../../components/Owner/OwnerDashS";
@@ -8,7 +8,6 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 export default function OwnerDashSContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('ownerToken')) history.replace('/err');
     }, []);

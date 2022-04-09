@@ -1,18 +1,18 @@
+import 'chart.js/auto';
 import * as React from 'react';
 import {useEffect, useLayoutEffect, useState} from 'react';
 import {masterMainType2} from "../../lib/types";
 import {GridColDef, GridRowId} from "@mui/x-data-grid";
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/masterOwnerDash.scss'
 import ApprovalWaiting from "../../components/Master/ApprovalWaiting";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import history from "next/router";
+
 
 // 입점 신청 승인대기 리스트
 export default function ApprovalWaitingContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');
     }, []);

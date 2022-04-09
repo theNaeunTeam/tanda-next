@@ -1,5 +1,5 @@
-import {useHistory} from "react-router-dom";
 import React, {useEffect, useLayoutEffect, useState} from "react";
+import history from "next/router";
 import {client} from "../../lib/api/client";
 import OwnerMainDashF from "../../components/Owner/OwnerMainDashF";
 import {useSweetAlert} from "../../lib/useSweetAlert";
@@ -7,8 +7,6 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function OwnerDashFContainer() {
     const {fireSweetAlert} = useSweetAlert();
-
-    const history = useHistory();
 
     const [loading, setLoading] = useState(true);
     useLayoutEffect(() => {

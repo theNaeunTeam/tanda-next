@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import ShopListBuilder from "./ShopListBuilder";
 import styled from "styled-components";
 import {shopList} from "../../../lib/types";
-import {RouteComponentProps} from 'react-router-dom';
+import {NextRouter} from "next/router";
 
 const DivMarker = styled.div`
   margin-left: 10px;
@@ -29,7 +29,7 @@ export default function ShopList(props: {
     list: shopList[];
     marker: boolean[];
     setMarker: React.Dispatch<React.SetStateAction<boolean[]>>;
-    history: RouteComponentProps["history"];
+    history: NextRouter;
     marks: { value: number, label: string }[];
     setRange: React.Dispatch<React.SetStateAction<string>>;
     goodsName: string;

@@ -12,7 +12,9 @@ export default function LocalList(props: localProps) {
         <>
             <div className='goodsSide'>
                 <img src={props.data.o_image}
-                     onClick={() => props.history.push(`/shopView/${props.data.o_sNumber}`)}
+                     onClick={() => props.history.push(`/shopView/${props.data.o_sNumber}`, `/shopView/${props.data.o_sNumber}`, {
+                         shallow: false,
+                     })}
                      className={'localListImg'}
                 />
                 <br/>

@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import {Button} from "@mui/material";
 import styled from "styled-components";
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {reservationViewType} from "../../lib/types";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -31,7 +31,6 @@ export default function ReservationViewContainer() {
     const {fireSweetAlert} = useSweetAlert();
     const dispatch = useDispatch();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('ownerToken')) history.replace('/err');
     }, []);

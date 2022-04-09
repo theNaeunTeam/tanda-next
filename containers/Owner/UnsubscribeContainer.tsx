@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState} from 'react';
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {client} from "../../lib/api/client";
 import Unsubscribe from "../../components/Owner/Unsubscribe";
 import {useDispatch} from "react-redux";
@@ -9,7 +9,6 @@ import {useSweetAlert} from "../../lib/useSweetAlert";
 export default function UnsubscribeContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('ownerToken')) history.replace('/err');
     }, []);

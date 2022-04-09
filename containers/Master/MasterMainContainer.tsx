@@ -2,13 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {GridColDef, GridRowId} from '@mui/x-data-grid';
 import {client} from "../../lib/api/client";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
 import {masterMainType2} from "../../lib/types";
-import '../../../styles/masterOwnerDash.scss';
-import '../../../styles/MasterLoginForm.scss';
 import MasterMain from "../../components/Master/MasterMain";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 import {AxiosError} from "axios";
+import {RootState} from "../../store";
 
 export default function MasterMainContainer() {
 

@@ -1,15 +1,13 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {GridColDef, GridRowId} from "@mui/x-data-grid";
 import {client} from "../../lib/api/client";
-import '../../../styles/masterOwnerDash.scss'
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import MasterUserList from "../../components/Master/MasterUserList";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function MasterUserListContainer() {
     const {fireSweetAlert} = useSweetAlert();
 
-    const history = useHistory();
     useLayoutEffect(() => {
         if (!localStorage.getItem('masterToken')) history.replace('/err');
     }, []);

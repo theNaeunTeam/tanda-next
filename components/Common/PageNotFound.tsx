@@ -14,7 +14,6 @@ const PageNotFound: NextPage = () => {
 
     const ErrorContainer = styled.div`
       margin-top: 90px;
-      background-color: #5EAFCC;
     `;
 
     return (

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, {useLayoutEffect, useState} from 'react';
 import {client} from "../../lib/api/client";
 import history from "next/router";

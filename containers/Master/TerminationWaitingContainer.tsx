@@ -2,13 +2,11 @@ import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {masterMainType2} from "../../lib/types";
 import {GridColDef, GridRowId} from "@mui/x-data-grid";
 import {client} from "../../lib/api/client";
-import {useHistory} from "react-router-dom";
-import '../../../styles/masterOwnerDash.scss'
+import history from "next/router";
 import TerminationWaiting from "../../components/Master/TerminationWaiting";
 import {useSweetAlert} from "../../lib/useSweetAlert";
 
 export default function TerminationWaitingContainer() {
-    const history = useHistory();
     const {fireSweetAlert} = useSweetAlert();
 
     useLayoutEffect(() => {

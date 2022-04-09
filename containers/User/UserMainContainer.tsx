@@ -1,4 +1,3 @@
-import type {NextPage} from "next";
 import React, {useEffect, useState} from 'react';
 import history from "next/router";
 import axios from "axios";

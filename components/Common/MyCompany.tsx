@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import '../../lib/styles/mycompany.scss'
 
 export default function MyCompany() {
 
@@ -30,7 +29,7 @@ export default function MyCompany() {
         }
     }
     return (
-        <>hghgjgjhhjgj
+        <>
             <section className='appstore'>
                 <div className='c-container'>
                     <div className='btn-area'>

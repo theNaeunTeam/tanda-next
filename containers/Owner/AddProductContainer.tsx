@@ -3,11 +3,11 @@ import {client} from "../../lib/api/client";
 import {Slide,} from "@mui/material";
 import {TransitionProps} from "@mui/material/transitions";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../index";
-import {useHistory} from "react-router-dom";
+import history from "next/router";
 import {addProductType} from "../../lib/types";
 import AddProduct from "../../components/Owner/AddProduct";
 import {useSweetAlert} from "../../lib/useSweetAlert";
+import {RootState} from "../../store";
 
 
 // 등록알림창
@@ -25,7 +25,6 @@ export default function AddProductContainer() {
     const fileDiv = useRef(null);
     const {fireSweetAlert} = useSweetAlert();
     const {goodsReducer, authReducer} = useSelector((state: RootState) => state);
-    const history = useHistory();
 
     useLayoutEffect(() => {
         if (!localStorage.getItem('ownerToken')) history.replace('/err');
